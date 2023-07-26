@@ -46,20 +46,20 @@ switch ($page) {
 
 
     case 'registration':
-    include 'registration.php';
+    include 'actions/registration.php';
         break;
 
 
     case 'update-profile':
-    include 'update-profile.php';
+    include 'actions/update-profile.php';
         break;
     
     case 'change-password':
-    include 'change-password.php';
+    include 'actions/change-password.php';
         break;
 
     default:
-    include 'dashboard.php';
+    include 'actions/dashboard.php';
         break;
 }
 
