@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  color: white;
+  color: gray;
 }
 html,body{
   display: grid;
@@ -25,7 +25,7 @@ html,body{
 
 .login-box{
     background: rgba(0, 0, 0, 0.5);
-    top: 50%;
+    top: 52%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
@@ -166,7 +166,7 @@ form .field input:focus::placeholder{
 }
 .form-inner form .pass-link a,
 .form-inner form .signup-link a{
-  color: #6B0202;
+  color: #ffffff;
   text-decoration: none;
 }
 .form-inner form .pass-link a:hover,
