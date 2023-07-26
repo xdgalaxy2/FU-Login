@@ -13,10 +13,11 @@ html,body{
   place-items: center;
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3 )), url('assets/image/bg.jpg');
+  background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3)), url('../assets/images/bg.jpg');
   background-size: cover;
   background-position: center;
 }
+
 ::selection{
   background: #6B0202;
   color: #fff;

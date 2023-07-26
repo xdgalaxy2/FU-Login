@@ -153,7 +153,7 @@ function test_input($data) {
 
 
 <div class="login-box">
-    <img src="image/FU_logo.png" class="avatar">
+    <img src="assets/images/FU_logo.png" class="avatar">
     <div class="wrapper">
          <div class="title-text">
             <div class="title login">
