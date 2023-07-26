@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 <!DOCTYPE HTML>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
 <?php
@@ -252,7 +252,7 @@ if (isset($_POST["register"])) {
 }
 ?>
 
-<script src="error.js"></script>
-<script src="transition.js"></script>
+<script src="js/error.js"></script>
+<script src="js/transition.js"></script>
 </body>
 </html>
