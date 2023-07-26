@@ -146,10 +146,8 @@ input[type="radio"]{
   color: #fff;
   transition: all 0.3s ease;
 }
-.form-inner form .field input:focus{
-  border-color: #6B0202;
-  /* box-shadow: inset 0 0 3px #fb6aae; */
-}
+
+
 .form-inner form .field input::placeholder{
   color: #999;
   transition: all 0.3s ease;
