@@ -43,8 +43,8 @@ if ($_SESSION["admin"] == 1) {
                 <td><?php echo $row["id_number"]; ?></td>
                 <td><?php echo $row["email"]; ?></td> <!-- Display the email alongside the id_number -->
                 <td>
-                    <a href="edit-profile.php?id=<?php echo $row["id"]; ?>">EDIT</a>
-                    <a href="delete-user.php?id=<?php echo $row["id"]; ?>">DELETE</a>
+                    <a href="actions/edit-profile.php?id=<?php echo $row["id"]; ?>">EDIT</a>
+                    <a href="actions/delete-user.php?id=<?php echo $row["id"]; ?>">DELETE</a>
                 </td>
             </tr>
             <?php

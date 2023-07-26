@@ -1,41 +1,67 @@
-// js/script.js
-$(document).ready(function() {
-  // Function to handle form submission via AJAX
-  function handleFormSubmit(formId) {
-    var formData = $("#" + formId).serialize();
+$(function(){
 
-    $.ajax({
-      type: "POST",
-      url: "login_and_register.php",
-      data: formData,
-      success: function(response) {
-        // Handle the response from the server
-        // You can update the DOM here if needed or show success/failure messages
-        console.log(response);
-        // For example, to show success messages
-        if (response.indexOf("Create Account Successful") !== -1) {
-          $(".float-success").html("<p>Create Account Successful</p>").show();
-        } else if (response.indexOf("Error creating account") !== -1) {
-          $(".float-error").html("<p>Error creating account<br>Please fix the errors in the form.</p>").show();
-        } else if (response.indexOf("Incorrect password") !== -1 || response.indexOf("ID number not found") !== -1) {
-          $(".float-error-login").html("<p>Incorrect ID number or password</p>").show();
-        }
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        // Handle the error if the request fails
-        console.log("Error:", textStatus, errorThrown);
-      }
-    });
-  }
+    loadStudentLists();
 
-  // Listen for form submissions
-  $("#login-form").on("submit", function(event) {
-    event.preventDefault();
-    handleFormSubmit("login-form");
-  });
+    $("#login-form").submit(function(e){
+        e.preventDefault();
 
-  $("#signup-form").on("submit", function(event) {
-    event.preventDefault();
-    handleFormSubmit("signup-form");
-  });
-});
+        $.ajax({
+          type        : 'POST',  
+          url         : 'actions/verify-user.php',
+          data        : $('#login-form').serialize(), // data : $('#form_ID').serialize() or data : {var1:val1,var2:val2}
+          dataType    : 'json',  //  xml, html, script, json, text
+          beforeSend : function() {
+            $('#login-message').html("Verifiying Account.");
+          },
+          //is called when the server returns success status code, like: 200, 201
+          success:function(data){   
+              //console.log(data);
+            if(data.message=='Password Verified!'){
+                $('#login-message').html(data.message);
+                /*
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: data.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                */
+                
+                setTimeout(
+                    function() 
+                    {
+                        $(window).attr('location','/FU-Login/');
+                    }, 1500);
+
+            }else{
+
+                 $('#login-message').html(data.message);
+                setTimeout(
+                    function() 
+                    {
+                         $('#login-message').html("");
+                    }, 1000);
+
+                /*
+                  Swal.fire({
+                    icon: 'warning',
+                    title: 'LOGIN',
+                    text: data.message,
+                    footer: ''
+                  })
+                 */
+            }
+              
+             
+          },
+          // is called always when the request is complete. (no matter, it is success/error response from server.)
+          complete : function(data,status) {
+              //console.log(data.responseText);
+          },
+          error:function (xhr, ajaxOptions, thrownError){
+              console.log(xhr.responseText);
+          }
+      });
+
+    })
